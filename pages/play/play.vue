@@ -1,7 +1,42 @@
 <template>
   <view class="play">
     <view class="play-box">
-      <video class="player" :autoplay="true" :src="url" :initial-time="initialtime" @timeupdate="videoTimeUpdateEvent"></video>
+      <video 
+        class="player" 
+        :autoplay="true" 
+        :src="url" 
+        :initial-time="initialtime" 
+        @timeupdate="videoTimeUpdateEvent"
+        :controls="true"
+        :show-center-play-btn="true"
+        :show-fullscreen-btn="true"
+        :show-play-btn="true"
+        :show-progress="true"
+        :enable-progress-gesture="true"
+        :object-fit="'contain'"
+        :direction="0"
+        :show-loading="true"
+        :enable-play-gesture="true"
+        :auto-pause-if-navigate="true"
+        :auto-pause-if-open-native="true"
+        :vslide-gesture="true"
+        :vslide-gesture-in-fullscreen="true"
+        :danmu-list="[]"
+        :enable-danmu="false"
+        :page-gesture="true"
+        :show-screen-lock-button="true"
+        :show-snapshot-button="true"
+        :show-background-playback-button="true"
+        :background-poster="detail.pic"
+        :poster="detail.pic"
+        :title="name"
+        :play-btn-position="'center'"
+        :custom-cache="true"
+        :enable-auto-rotation="true"
+        :show-mute-btn="true"
+        :show-volume-slider="true"
+        :show-casting-button="true"
+      ></video>
     </view>
     <view class="icon-box">
       <u-icon name="share" size="60" color="#1e88e5" style="margin-right: 30rpx"></u-icon>
@@ -171,6 +206,7 @@ export default {
   .play-box {
     .player {
       width: 100vw;
+      height: 56.25vw; // 16:9 比例
     }
   }
   .icon-box {
