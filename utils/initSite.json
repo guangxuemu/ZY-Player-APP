@@ -1,9 +1,15 @@
 [
   {
     "id": 1,
+<<<<<<< HEAD
     "key": "dbzy",
     "name": "dbzy资源",
     "api": "https://caiji.dbzy.tv/api.php/provide/vod/at/xml/",
+=======
+    "key": "rycjapi",
+    "name": "如意资源",
+    "api": "https://cj.rycjapi.com/api.php/provide/vod/from/rym3u8/at/xml/",
+>>>>>>> b5aee18bd3b0a27c522816e7cb1810ddcdd1a06e
     "download": "",
     "group": "默认",
     "isActive": true,
@@ -21,9 +27,15 @@
   },
   {
     "id": 3,
+<<<<<<< HEAD
     "key": "rycjapi",
     "name": "如意资源",
     "api": "https://cj.rycjapi.com/api.php/provide/vod/from/rym3u8/at/xml/",
+=======
+    "key": "mozhuazy",
+    "name": "mozhua资源",
+    "api": "https://mozhuazy.com/api.php/provide/vod/at/xml/",
+>>>>>>> b5aee18bd3b0a27c522816e7cb1810ddcdd1a06e
     "download": "",
     "group": "默认",
     "isActive": true,

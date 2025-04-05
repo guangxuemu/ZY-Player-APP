@@ -7,7 +7,10 @@
         :src="url" 
         :initial-time="initialtime" 
         @timeupdate="videoTimeUpdateEvent"
+<<<<<<< HEAD
         @fullscreenchange="handleFullScreenChange"
+=======
+>>>>>>> b5aee18bd3b0a27c522816e7cb1810ddcdd1a06e
         :controls="true"
         :show-center-play-btn="true"
         :show-fullscreen-btn="true"
@@ -37,7 +40,10 @@
         :show-mute-btn="true"
         :show-volume-slider="true"
         :show-casting-button="true"
+<<<<<<< HEAD
         :playback-rate="playbackRate"
+=======
+>>>>>>> b5aee18bd3b0a27c522816e7cb1810ddcdd1a06e
       ></video>
     </view>
     <view class="icon-box">
