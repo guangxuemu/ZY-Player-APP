@@ -211,13 +211,17 @@ export default {
       this.typeList = [{ name: '最新', tid: 0 }]
       this.type = { name: '最新', tid: 0 }
       http.class(key).then(res => {
+        // 确保res是数组
+        const classData = Array.isArray(res) ? res : [];
         // 屏蔽主分类
         const classToHide = ['电影', '电影片', '电视剧', '连续剧', '综艺', '动漫']
-        res.forEach(ele => {
+        classData.forEach(ele => {
           if (!classToHide.includes(ele.name)) {
             this.typeList.push(ele)
           }
         })
+      }).catch(error => {
+        console.error('获取分类失败:', error)
       })
     },
     async addData(key, page, t) {

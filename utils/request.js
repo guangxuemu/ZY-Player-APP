@@ -22,7 +22,8 @@ const http = {
   async class (key) {
     const site = await this.getSite(key)
     try {
-      const res = await ajax.post(site.api)
+      const proxyUrl = `https://seep.eu.org/${encodeURIComponent(site.api)}`
+      const res = await ajax.get(proxyUrl)
       const json = parser.parse(res.data, this.xmlConfig)
       const arr = []
       if (json.rss.class) {
@@ -41,10 +42,14 @@ const http = {
   },
   // 获取视频资源
   async list (key, pg = 1, t) {
+    // 确保pg是有效数字
+    pg = isNaN(parseInt(pg)) ? 1 : Math.max(1, parseInt(pg));
+    
     const site = await this.getSite(key)
     const url = `${site.api}?ac=videolist${t ? '&t=' + t: ''}&pg=${pg}`
     try {
-      const res = await ajax.post(url)
+      const proxyUrl = `https://seep.eu.org/${encodeURIComponent(url)}`
+      const res = await ajax.get(proxyUrl)
       const json = parser.parse(res.data, this.xmlConfig)
       if (json.rss.list.video) {
         return json.rss.list.video
@@ -60,7 +65,8 @@ const http = {
     const site = await this.getSite(key)
     const url = `${site.api}?ac=videolist${t ? '&t=' + t: ''}`
     try {
-      const res = await ajax.post(url)
+      const proxyUrl = `https://seep.eu.org/${encodeURIComponent(url)}`
+      const res = await ajax.get(proxyUrl)
       const json = parser.parse(res.data, this.xmlConfig)
       const pg = {
         page: json.rss.list._page,
@@ -79,7 +85,10 @@ const http = {
     wd = encodeURI(wd)
     const url = `${site.api}?wd=${wd}`
     try {
-      const res = await ajax.post(url, { timeourt: 3000 })
+      const proxyUrl = `https://seep.eu.org/${encodeURIComponent(url)}`
+      const res = await ajax.get(proxyUrl, {
+        timeout: 3000
+      })
       const json = parser.parse(res.data, this.xmlConfig)
       if (json && json.rss && json.rss.list) {
         const videoList = json.rss.list.video
@@ -95,7 +104,8 @@ const http = {
     const site = await this.getSite(key)
     const url = `${site.api}?ac=videolist&ids=${id}`
     try {
-      const res = await ajax.post(url)
+      const proxyUrl = `https://seep.eu.org/${encodeURIComponent(url)}`
+      const res = await ajax.get(proxyUrl)
       const json = parser.parse(res.data, this.xmlConfig)
       if (json && json.rss && json.rss.list) {
         const videoList = json.rss.list.video
@@ -122,7 +132,8 @@ const http = {
   // 通过 json url 导入视频源
   async site (jsonUrl) {
     try {
-      const res = await ajax.get(jsonUrl)
+      const proxyUrl = `https://seep.eu.org/${encodeURIComponent(jsonUrl)}`
+      const res = await ajax.get(proxyUrl)
       return res.data
     } catch (err) {
       return err

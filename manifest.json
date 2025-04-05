@@ -1,6 +1,6 @@
 {
     "name" : "ZY Player",
-    "appid" : "__UNI__B85B395",
+    "appid" : "__UNI__67710F0",
     "description" : "ZY Player 移动端 APP",
     "versionName" : "0.1.2",
     "versionCode" : 102,
@@ -10,6 +10,16 @@
         "usingComponents" : true,
         "nvueCompiler" : "uni-app",
         "compilerVersion" : 3,
+        "x5" : {
+            "timeOut" : 3000,
+            "showTipsWithoutWifi" : false,
+            "videoPlayer" : "x5",
+            "webView" : {
+                "enable" : true,
+                "videoFullscreen" : "landscape",
+                "renderInH5Video" : true
+            }
+        },
         "splashscreen" : {
             "alwaysShowBeforeRender" : false,
             "waiting" : true,
@@ -31,7 +41,9 @@
                 ]
             },
             /* ios打包配置 */
-            "ios" : {},
+            "ios" : {
+                "dSYMs" : false
+            },
             /* SDK配置 */
             "sdkConfigs" : {
                 "ad" : {}

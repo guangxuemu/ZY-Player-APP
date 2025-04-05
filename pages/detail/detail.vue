@@ -216,6 +216,12 @@ export default {
     this.getDetail(opt.site, opt.id);
     this.checkStar()
   },
+  beforeDestroy() {
+    if (this._observer) {
+      this._observer.disconnect();
+      this._observer = null;
+    }
+  },
 };
 </script>
 <style lang="scss" scoped>
